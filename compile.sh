@@ -1,0 +1,1 @@
+g++ snq.cpp -o snq
