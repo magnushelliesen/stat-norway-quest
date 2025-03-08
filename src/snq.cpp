@@ -1,4 +1,4 @@
-#include <resources/gameplay.hpp>
+#include "gameplay.h"
 
 int main() {
     gameplay();
