@@ -3,8 +3,8 @@ A retro style adventure game following a protagonist that works in central gover
 
 <img src="https://github.com/user-attachments/assets/6d61bd90-8e1c-4eef-8b5b-36c845467f9f" alt="SNQ" width="200"/>
 
-The game will hopef
-ully include the following (the list is not extensive)
+## Goal
+The game will _hopefully_ include the following elements (the list is not extensive)
 - Talking to colleagues
 - Carrying data around
 - Manipulating a production pipeline and a macro model
@@ -14,3 +14,6 @@ ully include the following (the list is not extensive)
 - Eating cake on Fridays
 - Drinking coffee
 - Attending X-mas party
+
+## Why
+This is my honest attempt to learn C++. My plan is to learn about concepts as I need them. If the code sucks, it's because I'm learning.
