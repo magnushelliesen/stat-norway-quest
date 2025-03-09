@@ -1,5 +1,5 @@
-#ifndef MY_HEADER_H
-#define MY_HEADER_H
+#ifndef GAMEPLAY_H
+#define GAMEPLAY_H
 
 void gameplay();
 
