@@ -1,5 +1,5 @@
 # Compile Stat Norway Quest
-g++ -Iinclude src/*.cpp -o snq
+g++ -Iinclude src/*.cpp -o snq `sdl2-config --cflags --libs`
 
 # Report success or failure
 if [ $? -eq 0 ]; then
