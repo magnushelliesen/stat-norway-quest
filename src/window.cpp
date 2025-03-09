@@ -6,10 +6,11 @@
 const int WIDTH = 1900;
 const int HEIGHT = 1200;
 
-void window(){
+int window(){
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         std::cerr << "SDL could not initialize! SDL_Error: " << SDL_GetError() << "\n";
+        return 1;
     }
 
     // Create window
@@ -17,9 +18,10 @@ void window(){
     if (!window) {
         std::cerr << "Window could not be created! SDL_Error: " << SDL_GetError() << "\n";
         SDL_Quit();
+        return 1;
     }
 
-    // **Event loop to keep the window open**
+    // Event loop to keep the window open
     bool running = true;
     SDL_Event event;
     while (running) {
@@ -34,4 +36,5 @@ void window(){
     // Cleanup
     SDL_DestroyWindow(window);
     SDL_Quit();
+    return 0;
 }
