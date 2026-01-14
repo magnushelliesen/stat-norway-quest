@@ -19,7 +19,7 @@ pub fn make_player(name: String) -> Stats {
 }
 
 impl Stats {
-    pub fn increment_tenure(&mut self){
-        self.tenure +=1 ;
+    pub fn increment_tenure(&mut self) {
+        self.tenure += 1;
     }
 }

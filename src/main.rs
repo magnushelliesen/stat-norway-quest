@@ -13,11 +13,11 @@ fn main() {
         .read_line(&mut player_name)
         .expect("Failed to read line");
 
-    // Instantiate player struct
-    let mut _player = make_player(player_name);
+    // Instantiate Stats struct
+    let mut stats = make_player(player_name);
 
     // Game loop
     loop {
-        _player.increment_tenure();
+        stats.increment_tenure();
     }
 }
