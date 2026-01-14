@@ -1,7 +1,7 @@
-mod player;
-
-use crate::player::make_player;
+use crate::stuff::player::make_player;
 use std::io;
+
+pub mod stuff;
 
 fn main() {
     // Accept player name before game starts
