@@ -16,4 +16,4 @@ The game will _hopefully_ include the following elements (the list is not extens
 - Attending X-mas party
 
 ## Wait, why?
-This is my honest attempt at learning C++. My plan is to read up on concepts as the project progresses and I need them. If the code sucks, it's because I'm learning.
+This is my honest attempt at learning Rust. My plan is to read up on concepts as the project progresses and I need them. If the code sucks, it's because I'm learning.
