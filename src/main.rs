@@ -14,5 +14,10 @@ fn main() {
         .expect("Failed to read line");
 
     // Instantiate player struct
-    let _player = make_player(player_name);
+    let mut _player = make_player(player_name);
+
+    // Game loop
+    loop {
+        _player.increment_tenure();
+    }
 }
