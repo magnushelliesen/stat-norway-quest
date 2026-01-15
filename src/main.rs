@@ -1,4 +1,5 @@
 use crate::stuff::player::make_player;
+use crate::stuff::tasks::assign_task;
 use std::io;
 
 pub mod stuff;
@@ -18,6 +19,14 @@ fn main() {
 
     // Game loop
     loop {
+        let task = assign_task(stats.tenure);
+
+        if task() {
+            println!("Success")
+        } else {
+            println!("Not success")
+        }
+
         stats.increment_tenure();
     }
 }
