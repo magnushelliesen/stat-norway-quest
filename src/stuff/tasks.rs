@@ -1,10 +1,10 @@
 use rand::random_range;
 
-pub fn assign_task(tenure: i32) -> fn() -> bool{
-    let random_task = random_range(1..100);
+pub fn assign_task(tenure: i32) -> fn() -> bool {
+    let task_index = tenure + random_range(1..100);
 
     // Return task based on tenure
-    if tenure <= random_task {
+    if task_index <= 1 {
         fix_model
     } else {
         fix_model
