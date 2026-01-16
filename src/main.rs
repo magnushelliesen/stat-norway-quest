@@ -28,5 +28,9 @@ fn main() {
         }
 
         stats.increment_tenure();
+        
+        break;
     }
+
+    println!("Congratulations! You just worked many many years in Statistics Norway.")
 }

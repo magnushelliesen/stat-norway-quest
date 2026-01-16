@@ -17,8 +17,8 @@ pub fn make_player(name: String) -> Stats {
     Stats {
         name,
         tenure: 0,
-        skill: 0,
-        respect: 0,
+        skill: 10,
+        respect: 10,
         amount_written: 0,
         job_title: JobTitle::HigherExecutiveOfficer,
     }
