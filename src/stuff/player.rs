@@ -1,10 +1,4 @@
-#[derive(Debug)]
-pub enum JobTitle {
-    HigherExecutiveOfficer,
-    Advisor,
-    SeniorAdvisor,
-}
-
+// Struct that holds player stats
 #[derive(Debug)]
 pub struct Stats {
     pub name: String,
@@ -15,6 +9,17 @@ pub struct Stats {
     pub job_title: JobTitle,
 }
 
+// Enum that holds job titles
+#[derive(Debug)]
+pub enum JobTitle {
+    HigherExecutiveOfficer,
+    Adviser,
+    SeniorAdviser,
+    HeadOfDivision,
+    DirectorOfDepartmen,
+}
+
+// Function that generates player stats
 pub fn make_player(name: String) -> Stats {
     Stats {
         name: name.trim().to_string(),
@@ -27,6 +32,10 @@ pub fn make_player(name: String) -> Stats {
 }
 
 impl Stats {
+    /*
+    Methods that increment tenure and skill (these can only increase),
+    and increment and decrement respect (these can increase and decrease)
+     */
     pub fn increment_tenure(&mut self) {
         self.tenure += 1;
     }
@@ -43,18 +52,19 @@ impl Stats {
         self.respect -= 1;
     }
 
+    // Methods that handle promotions and demotions
     pub fn implement_promotion(&mut self) {
         self.job_title = match self.job_title {
-            JobTitle::HigherExecutiveOfficer => JobTitle::Advisor,
-            JobTitle::Advisor => JobTitle::SeniorAdvisor,
-            _ => JobTitle::Advisor,
+            JobTitle::HigherExecutiveOfficer => JobTitle::Adviser,
+            JobTitle::Adviser => JobTitle::SeniorAdviser,
+            _ => JobTitle::Adviser,
         }
     }
 
     pub fn implement_deomotion(&mut self) {
         self.job_title = match self.job_title {
-            JobTitle::SeniorAdvisor => JobTitle::Advisor,
-            JobTitle::Advisor => JobTitle::HigherExecutiveOfficer,
+            JobTitle::SeniorAdviser => JobTitle::Adviser,
+            JobTitle::Adviser => JobTitle::HigherExecutiveOfficer,
             _ => JobTitle::HigherExecutiveOfficer,
         }
     }
