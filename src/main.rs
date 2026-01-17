@@ -1,8 +1,13 @@
 use crate::stuff::player::make_player;
 use crate::stuff::tasks::assign_task;
+use rand::random_bool;
 use std::io;
 
 pub mod stuff;
+
+// Constants (might be put in some separate file later)
+const PROBABILITY_SALARY_NEGOTIATION: f64 = 0.05;
+const PROBABILITY_XMAS_PARTY: f64 = 0.05;
 
 fn main() {
     // Accept player name before game loop starts
@@ -19,6 +24,16 @@ fn main() {
 
     // Game loop
     loop {
+        /*
+        Every day the following happens
+        1) The player gets a task
+        2) The player has to interact with some co-worker
+        4) With some probability, the player negotiates salary
+        5) With some probability, it's the office Xmas party
+        */
+
+        // 1) Random task
+
         // Assign a random task given tenure
         let task = assign_task(stats.tenure);
 
@@ -34,7 +49,20 @@ fn main() {
 
         stats.increment_tenure();
 
+        // 2) Interact with some co-worker TBA
+
+        // 3) Salary negotiation
+        if random_bool(PROBABILITY_SALARY_NEGOTIATION) {
+            println!("Salary negotiation.")
+        }
+
+        // 4) Xmas party
+        if random_bool(PROBABILITY_XMAS_PARTY) {
+            println!("Xmas party.")
+        }
+
         println!("{:#?}", stats);
+
         break;
     }
 
