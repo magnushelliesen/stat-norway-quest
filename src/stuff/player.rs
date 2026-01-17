@@ -16,7 +16,7 @@ pub enum JobTitle {
     Adviser,
     SeniorAdviser,
     HeadOfDivision,
-    DirectorOfDepartmen,
+    DirectorOfDepartment,
 }
 
 // Function that generates player stats
