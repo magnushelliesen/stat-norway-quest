@@ -37,6 +37,10 @@ impl Stats {
         self.respect += 1;
     }
 
+    pub fn decrement_respect(&mut self) {
+        self.respect -= 1;
+    }
+
     pub fn implement_promotion(&mut self) {
         self.job_title = match self.job_title {
             JobTitle::HigherExecutiveOfficer => JobTitle::Advisor,
