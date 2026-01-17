@@ -22,16 +22,17 @@ fn main() {
         let task = assign_task(stats.tenure);
 
         if task() {
-            println!("Success");
+            println!("You successfully completed your task.");
             stats.increment_skill();
             stats.increment_respect();
         } else {
-            println!("Not success");
+            println!("You unsuccessfully failed at your task.");
             stats.decrement_respect();
         }
 
         stats.increment_tenure();
 
+        println!("{:#?}", stats);
         break;
     }
 

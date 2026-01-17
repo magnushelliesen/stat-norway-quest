@@ -1,9 +1,11 @@
+#[derive(Debug)]
 pub enum JobTitle {
     HigherExecutiveOfficer,
     Advisor,
     SeniorAdvisor,
 }
 
+#[derive(Debug)]
 pub struct Stats {
     pub name: String,
     pub tenure: i32,
@@ -15,7 +17,7 @@ pub struct Stats {
 
 pub fn make_player(name: String) -> Stats {
     Stats {
-        name,
+        name: name.trim().to_string(),
         tenure: 0,
         skill: 10,
         respect: 10,
@@ -30,7 +32,7 @@ impl Stats {
     }
 
     pub fn increment_skill(&mut self) {
-        self.respect += 1;
+        self.skill += 1;
     }
 
     pub fn increment_respect(&mut self) {
