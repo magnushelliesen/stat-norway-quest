@@ -29,6 +29,14 @@ impl Stats {
         self.tenure += 1;
     }
 
+    pub fn increment_skill(&mut self) {
+        self.respect += 1;
+    }
+
+    pub fn increment_respect(&mut self) {
+        self.respect += 1;
+    }
+
     pub fn implement_promotion(&mut self) {
         self.job_title = match self.job_title {
             JobTitle::HigherExecutiveOfficer => JobTitle::Advisor,
