@@ -8,8 +8,10 @@ pub fn assign_task(tenure: i32) -> fn(i32) -> bool {
 
     // Return task based on tenure
     if task_index <= 1 {
+        println!("\nYou've been tasked with running the model.");
         fix_model
     } else {
+        println!("\nYou've been tasked with running the model.");
         fix_model
     }
 }

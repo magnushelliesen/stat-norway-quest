@@ -3,6 +3,7 @@ use std::io;
 
 use rand::random_bool;
 use rand::random_range;
+use num_traits::pow;
 
 const MIN_NUMBER_OF_GUESSES: i32 = 3;
 const MAX_NUMBER_OF_GUESSES: i32 = 15;
@@ -10,7 +11,8 @@ const MAX_NUMBER_OF_GUESSES: i32 = 15;
 const MAX_EQUATION_NUMBER: i32 = 15_500;
 
 pub fn fix_model(tenure: i32) -> bool {
-    let probability: f64 = 1.0 / ((tenure + 2) as f64);
+    // The likelihood that the model crashes falls off with tenure
+    let probability: f64 = pow(1.0 / ((tenure + 2) as f64), 4);
     if random_bool(probability) {
         guessing_game()
     } else {
@@ -31,7 +33,7 @@ fn guessing_game() -> bool {
     println!(
         "\nOh crap, the model crashed...\n\
         You need to find the correct equation causes the crash.\n\
-        The deadline is right around the corner, so you have only {max_number_of_guesses} attempts. \n\n\
+        The deadline is right around the corner, so you have only {max_number_of_guesses} attempts.\n\n\
         Guess the buggy equation number \
         (you have reason to believe that it's somewhere between equation number {min_equation_range} and {max_equation_range})..."
     );
