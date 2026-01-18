@@ -67,11 +67,9 @@ fn main() {
             println!("Xmas party.")
         }
 
-        //println!("{:#?}", stats);
-
-        stats.print_stats();
-
-        break;
+        //if stats.tenure % 10 == 0 {
+        //    stats.print_stats();
+        //}
     }
 
     println!("\nCongratulations!\nYou just worked many many years in Statistics Norway.")
