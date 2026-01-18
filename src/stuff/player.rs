@@ -1,5 +1,4 @@
 // Enum that holds job titles
-#[derive(Debug)]
 pub enum JobTitle {
     HigherExecutiveOfficer,
     Adviser,
@@ -21,7 +20,6 @@ impl JobTitle {
 }
 
 // Struct that holds player stats
-#[derive(Debug)]
 pub struct Stats {
     pub name: String,
     pub tenure: i32,
