@@ -13,7 +13,7 @@ fn main() {
     // Accept player name before game loop starts
     let mut player_name = String::new();
 
-    println!("Welcome to Stat Norway Quest, please type your name:");
+    println!("\n\nWelcome to STAT NORWAY QUEST I, \nplease type your name:");
 
     io::stdin()
         .read_line(&mut player_name)

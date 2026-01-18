@@ -29,15 +29,18 @@ fn guessing_game() -> bool {
     let mut success: bool = false;
 
     println!(
-        "Oh crap, the model crashed...\n\
+        "\nOh crap, the model crashed...\n\
         You need to find the correct equation causes the crash.\n\
         The deadline is right around the corner, so you have only {max_number_of_guesses} attempts. \n\n\
         Guess the buggy equation number \
-        (you have reason to believe that it's somewhere between equation number {min_equation_range} and {max_equation_range}): "
+        (you have reason to believe that it's somewhere between equation number {min_equation_range} and {max_equation_range})..."
     );
 
     while counter < max_number_of_guesses {
         let mut guess = String::new();
+        let remaining_guesses: i32 = max_number_of_guesses - counter;
+
+        println!("\nTake a guess (you have {remaining_guesses} remaining guesses): ");
 
         io::stdin()
             .read_line(&mut guess)
@@ -47,7 +50,7 @@ fn guessing_game() -> bool {
         let guess: i32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => {
-                println!("Input must be a number, you dum-dum.");
+                println!("Input must be a number, you dum-dum...");
                 continue;
             }
         };
