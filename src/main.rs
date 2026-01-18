@@ -1,5 +1,5 @@
 use crate::stuff::player::make_player;
-use crate::stuff::tasks::assign_task;
+use crate::stuff::tasks::assign_task::assign_task;
 use rand::random_bool;
 use std::io;
 
@@ -38,7 +38,7 @@ fn main() {
         let task = assign_task(stats.tenure);
 
         // Determine if task was completed successfully
-        if task() {
+        if task(stats.tenure) {
             println!("You successfully completed your task.");
             stats.increment_skill();
             stats.increment_respect();
