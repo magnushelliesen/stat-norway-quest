@@ -1,5 +1,5 @@
 use crate::stuff::player::make_player;
-use crate::stuff::tasks::assign_task;
+use crate::stuff::tasks::assign_task::assign_task;
 use rand::random_bool;
 use std::io;
 
