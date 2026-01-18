@@ -22,8 +22,14 @@ fn main() {
     // Instantiate Stats struct using constructor
     let mut stats = make_player(player_name);
 
+    println!(
+        "\nCongratulations, you've been hired as an {}. Good luck and Godspeed.\n",
+        stats.job_title.as_string()
+    );
+
     // Game loop
     loop {
+        println!("\nWelcome to day {}.\n", stats.tenure + 1);
         /*
         Every day the following happens
         1) The player gets a task

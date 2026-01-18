@@ -8,7 +8,7 @@ pub enum JobTitle {
 }
 
 impl JobTitle {
-    fn as_string(&self) -> String {
+    pub fn as_string(&self) -> String {
         match &self {
             JobTitle::HigherExecutiveOfficer => String::from("Higher Executive Officer"),
             JobTitle::Adviser => String::from("Adviser"),
