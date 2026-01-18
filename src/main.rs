@@ -13,7 +13,7 @@ fn main() {
     // Accept player name before game loop starts
     let mut player_name = String::new();
 
-    println!("\n\nWelcome to STAT NORWAY QUEST I, \nplease type your name:");
+    println!("\n\n*** Welcome to STAT NORWAY QUEST I ***\nPlease type your name:");
 
     io::stdin()
         .read_line(&mut player_name)
@@ -23,13 +23,13 @@ fn main() {
     let mut stats = make_player(player_name);
 
     println!(
-        "\nCongratulations, you've been hired as an {}. Good luck and Godspeed.\n",
+        "\nCongratulations, you've been hired as an {}.\nGood luck and Godspeed.",
         stats.job_title.as_string()
     );
 
     // Game loop
     loop {
-        println!("\nWelcome to day {}.\n", stats.tenure + 1);
+        println!("\n*** Welcome to day {} ***", stats.tenure + 1);
         /*
         Every day the following happens
         1) The player gets a task
@@ -41,15 +41,15 @@ fn main() {
         // 1) Random task
 
         // Assign a random task given tenure
-        let task = assign_task(stats.tenure);
+        let task: fn(i32) -> bool = assign_task(stats.tenure);
 
         // Determine if task was completed successfully
         if task(stats.tenure) {
-            println!("You successfully completed your task.");
+            println!("\nYou successfully completed your task.");
             stats.increment_skill();
             stats.increment_respect();
         } else {
-            println!("You unsuccessfully failed at your task.");
+            println!("\nYou unsuccessfully failed at your task.");
             stats.decrement_respect();
         }
 
@@ -74,5 +74,5 @@ fn main() {
         break;
     }
 
-    println!("Congratulations! You just worked many many years in Statistics Norway.")
+    println!("\nCongratulations!\nYou just worked many many years in Statistics Norway.")
 }

@@ -10,7 +10,8 @@ const MAX_NUMBER_OF_GUESSES: i32 = 15;
 const MAX_EQUATION_NUMBER: i32 = 15_500;
 
 pub fn fix_model(tenure: i32) -> bool {
-    let probability: f64 = 1.0 / ((tenure + 1) as f64);
+    // The likelihood that the model crashes falls off with tenure
+    let probability: f64 = (1.0 / ((tenure + 2) as f64)).sqrt().sqrt();
     if random_bool(probability) {
         guessing_game()
     } else {
@@ -31,7 +32,7 @@ fn guessing_game() -> bool {
     println!(
         "\nOh crap, the model crashed...\n\
         You need to find the correct equation causes the crash.\n\
-        The deadline is right around the corner, so you have only {max_number_of_guesses} attempts. \n\n\
+        The deadline is right around the corner, so you have only {max_number_of_guesses} attempts.\n\n\
         Guess the buggy equation number \
         (you have reason to believe that it's somewhere between equation number {min_equation_range} and {max_equation_range})..."
     );
@@ -50,10 +51,17 @@ fn guessing_game() -> bool {
         let guess: i32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => {
-                println!("Input must be a number, you dum-dum...");
+                println!("Your guess must be a number, you dum-dum...");
+                counter += 1;
                 continue;
             }
         };
+
+        // Handle guesses outside range
+        if guess < min_equation_range || guess > max_equation_range {
+            println!("Your guess is outside the outside the expeced range.\nYou wasted precious time, now that's really stupid...");
+            break;
+        }
 
         // Check guess against secret number
         match guess.cmp(&secret_number) {
