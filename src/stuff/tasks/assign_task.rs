@@ -1,4 +1,5 @@
-use crate::stuff::tasks::fix_model_task::fix_model;
+use crate::stuff::tasks::fix_model::fix_model;
+use crate::stuff::tasks::read_doc::read_doc;
 
 use rand::random_range;
 
@@ -11,7 +12,7 @@ pub fn assign_task(tenure: i32) -> fn(i32) -> bool {
         println!("\nYou've been tasked with running the model.");
         fix_model
     } else {
-        println!("\nYou've been tasked with running the model.");
-        fix_model
+        println!("\nYou've been tasked with reading some documentation.");
+        read_doc
     }
 }
