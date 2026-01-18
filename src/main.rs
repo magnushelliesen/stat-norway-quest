@@ -41,7 +41,7 @@ fn main() {
         // 1) Random task
 
         // Assign a random task given tenure
-        let task = assign_task(stats.tenure);
+        let task: fn(i32) -> bool = assign_task(stats.tenure);
 
         // Determine if task was completed successfully
         if task(stats.tenure) {
@@ -74,5 +74,5 @@ fn main() {
         break;
     }
 
-    println!("Congratulations! You just worked many many years in Statistics Norway.")
+    println!("\nCongratulations!\nYou just worked many many years in Statistics Norway.")
 }
