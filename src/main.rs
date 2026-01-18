@@ -13,7 +13,7 @@ fn main() {
     // Accept player name before game loop starts
     let mut player_name = String::new();
 
-    println!("Welcome to Stat Norway Quest, please type your name:");
+    println!("\n\nWelcome to STAT NORWAY QUEST I, \nplease type your name:");
 
     io::stdin()
         .read_line(&mut player_name)
@@ -22,8 +22,14 @@ fn main() {
     // Instantiate Stats struct using constructor
     let mut stats = make_player(player_name);
 
+    println!(
+        "\nCongratulations, you've been hired as an {}. Good luck and Godspeed.\n",
+        stats.job_title.as_string()
+    );
+
     // Game loop
     loop {
+        println!("\nWelcome to day {}.\n", stats.tenure + 1);
         /*
         Every day the following happens
         1) The player gets a task
@@ -61,7 +67,9 @@ fn main() {
             println!("Xmas party.")
         }
 
-        println!("{:#?}", stats);
+        //println!("{:#?}", stats);
+
+        stats.print_stats();
 
         break;
     }

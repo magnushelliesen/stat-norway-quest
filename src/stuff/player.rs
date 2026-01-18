@@ -1,5 +1,25 @@
+// Enum that holds job titles
+pub enum JobTitle {
+    HigherExecutiveOfficer,
+    Adviser,
+    SeniorAdviser,
+    HeadOfDivision,
+    DirectorOfDepartment,
+}
+
+impl JobTitle {
+    pub fn as_string(&self) -> String {
+        match &self {
+            JobTitle::HigherExecutiveOfficer => String::from("Higher Executive Officer"),
+            JobTitle::Adviser => String::from("Adviser"),
+            JobTitle::SeniorAdviser => String::from("Senior Adviser"),
+            JobTitle::HeadOfDivision => String::from("SHead of Division"),
+            JobTitle::DirectorOfDepartment => String::from("Director of Department"),
+        }
+    }
+}
+
 // Struct that holds player stats
-#[derive(Debug)]
 pub struct Stats {
     pub name: String,
     pub tenure: i32,
@@ -7,16 +27,6 @@ pub struct Stats {
     pub respect: i32,
     pub amount_written: i32,
     pub job_title: JobTitle,
-}
-
-// Enum that holds job titles
-#[derive(Debug)]
-pub enum JobTitle {
-    HigherExecutiveOfficer,
-    Adviser,
-    SeniorAdviser,
-    HeadOfDivision,
-    DirectorOfDepartment,
 }
 
 // Function that generates player stats
@@ -32,10 +42,30 @@ pub fn make_player(name: String) -> Stats {
 }
 
 impl Stats {
+    // Method that prints stats
+    pub fn print_stats(self) {
+        let name: String = self.name;
+        let tenure: i32 = self.tenure;
+        let skill: i32 = self.skill;
+        let respect: i32 = self.respect;
+        let amount_written: i32 = self.amount_written;
+        let job_title: String = self.job_title.as_string();
+
+        println!(
+            "Name: {name} \n\
+            Tenure: {tenure} \n\
+            Skill: {skill} \n\
+            Respect: {respect} \n\
+            Amount written: {amount_written} \n\
+            Job title: {job_title}"
+        )
+    }
+
     /*
     Methods that increment tenure and skill (these can only increase),
     and increment and decrement respect (these can increase and decrease)
-     */
+    */
+
     pub fn increment_tenure(&mut self) {
         self.tenure += 1;
     }
