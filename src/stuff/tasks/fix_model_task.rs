@@ -57,7 +57,7 @@ fn guessing_game() -> bool {
         };
 
         // Handle guesses outside range
-        if guess < min_equation_range || guess > min_equation_range {
+        if guess < min_equation_range || guess > max_equation_range {
             println!("Your guess is outside the outside the expeced range.\nYou wasted precious time, now that's really stupid...");
             break;
         }
