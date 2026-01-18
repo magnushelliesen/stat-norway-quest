@@ -20,8 +20,11 @@ pub fn fix_model(tenure: i32) -> bool {
 }
 
 fn guessing_game() -> bool {
+    let min_equation_range: i32 = random_range(0..MAX_EQUATION_NUMBER - 1);
+    let max_equation_range: i32 = random_range(min_equation_range..MAX_EQUATION_NUMBER);
+
     let max_number_of_guesses: i32 = random_range(MIN_NUMBER_OF_GUESSES..MAX_NUMBER_OF_GUESSES);
-    let secret_number: i32 = random_range(MIN_EQUATION_NUMBER..MAX_EQUATION_NUMBER);
+    let secret_number: i32 = random_range(min_equation_range..max_equation_range);
 
     let mut counter: i32 = 0;
     let mut success: bool = false;
@@ -30,7 +33,7 @@ fn guessing_game() -> bool {
         "Oh crap, the model crashed...\n\
         You need to find the correct equation causes the crash.\n\
         The deadline is right around the corner, so you have only {max_number_of_guesses} attempts. \n\n\
-        Guess the buggy equation number (it's somewhere between {MIN_EQUATION_NUMBER} and {MAX_EQUATION_NUMBER}): "
+        Guess the buggy equation number (you have reason to believe that it's somewhere between equation number {min_equation_range} and {max_equation_range}): "
     );
 
     while counter < max_number_of_guesses {
