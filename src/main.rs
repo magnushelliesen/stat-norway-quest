@@ -38,7 +38,7 @@ fn main() {
         let task = assign_task(stats.tenure);
 
         // Determine if task was completed successfully
-        if task() {
+        if task(stats.tenure) {
             println!("You successfully completed your task.");
             stats.increment_skill();
             stats.increment_respect();
