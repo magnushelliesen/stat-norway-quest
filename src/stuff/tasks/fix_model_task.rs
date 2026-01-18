@@ -5,7 +5,8 @@ use rand::random_bool;
 use rand::random_range;
 
 const MIN_NUMBER_OF_GUESSES: i32 = 3;
-const MAX_NUMBER_OF_GUESSES: i32 = 10;
+const MAX_NUMBER_OF_GUESSES: i32 = 15;
+
 const MIN_EQUATION_NUMBER: i32 = 0;
 const MAX_EQUATION_NUMBER: i32 = 15_500;
 
@@ -19,17 +20,18 @@ pub fn fix_model(tenure: i32) -> bool {
 }
 
 fn guessing_game() -> bool {
-    println!("The model crashed, and you need to find the correct equation that failed!");
-
     let max_number_of_guesses: i32 = random_range(MIN_NUMBER_OF_GUESSES..MAX_NUMBER_OF_GUESSES);
     let secret_number: i32 = random_range(MIN_EQUATION_NUMBER..MAX_EQUATION_NUMBER);
 
-    println!(
-        "Guess the buggy equation number (between {MIN_EQUATION_NUMBER} and {MAX_EQUATION_NUMBER}: "
-    );
-
     let mut counter: i32 = 0;
     let mut success: bool = false;
+
+    println!(
+        "Oh crap, the model crashed...\n \
+        50You need to find the correct equation causes the crash.\n \
+        The deadline is right around the corner, so you have only {max_number_of_guesses} attempts. \n\n \
+        Guess the buggy equation number (it's somewhere between {MIN_EQUATION_NUMBER} and {MAX_EQUATION_NUMBER}): "
+    );
 
     while counter < max_number_of_guesses {
         let mut guess = String::new();
@@ -42,15 +44,15 @@ fn guessing_game() -> bool {
         let guess: i32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => {
-                println!("Input must be a number");
+                println!("Input must be a number, you dum-dum.");
                 continue;
             }
         };
 
         // Check guess against secret number
         match guess.cmp(&secret_number) {
-            Ordering::Less => println!("No, the bug is in an equation before {guess}."),
-            Ordering::Greater => println!("No, the bug is in an equation after {guess}."),
+            Ordering::Less => println!("No, the bug is in an equation after {guess}."),
+            Ordering::Greater => println!("No, the bug is in an equation before {guess}."),
             Ordering::Equal => {
                 println!("Yes, the bug is in equation {secret_number}.");
                 success = true;
