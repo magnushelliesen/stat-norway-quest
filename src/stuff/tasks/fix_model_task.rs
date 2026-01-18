@@ -27,9 +27,9 @@ fn guessing_game() -> bool {
     let mut success: bool = false;
 
     println!(
-        "Oh crap, the model crashed...\n \
-        You need to find the correct equation causes the crash.\n \
-        The deadline is right around the corner, so you have only {max_number_of_guesses} attempts. \n\n \
+        "Oh crap, the model crashed...\n\
+        You need to find the correct equation causes the crash.\n\
+        The deadline is right around the corner, so you have only {max_number_of_guesses} attempts. \n\n\
         Guess the buggy equation number (it's somewhere between {MIN_EQUATION_NUMBER} and {MAX_EQUATION_NUMBER}): "
     );
 
