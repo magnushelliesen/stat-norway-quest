@@ -3,7 +3,6 @@ use std::io;
 
 use rand::random_bool;
 use rand::random_range;
-use num_traits::pow;
 
 const MIN_NUMBER_OF_GUESSES: i32 = 3;
 const MAX_NUMBER_OF_GUESSES: i32 = 15;
@@ -12,7 +11,7 @@ const MAX_EQUATION_NUMBER: i32 = 15_500;
 
 pub fn fix_model(tenure: i32) -> bool {
     // The likelihood that the model crashes falls off with tenure
-    let probability: f64 = pow(1.0 / ((tenure + 2) as f64), 4);
+    let probability: f64 = (1.0 / ((tenure + 2) as f64)).sqrt().sqrt();
     if random_bool(probability) {
         guessing_game()
     } else {
