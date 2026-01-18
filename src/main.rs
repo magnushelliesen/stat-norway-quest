@@ -1,7 +1,9 @@
 use crate::stuff::player::make_player;
 use crate::stuff::tasks::assign_task::assign_task;
 use rand::random_bool;
+use std::fs::File;
 use std::io;
+use std::io::prelude::*;
 
 pub mod stuff;
 
@@ -10,10 +12,17 @@ const PROBABILITY_SALARY_NEGOTIATION: f64 = 0.05;
 const PROBABILITY_XMAS_PARTY: f64 = 0.05;
 
 fn main() {
-    // Accept player name before game loop starts
-    let mut player_name = String::new();
+    // Print intro screen
+    let mut file = File::open(r"./ascii/intro_picture.txt").expect("Unable to open the file");
+    let mut contents = String::new();
+    file.read_to_string(&mut contents)
+        .expect("Unable to read the file");
+    println!("{}", contents);
 
     println!("\n\n*** Welcome to STAT NORWAY QUEST I ***\nPlease type your name:");
+
+    // Accept player name before game loop starts
+    let mut player_name = String::new();
 
     io::stdin()
         .read_line(&mut player_name)
