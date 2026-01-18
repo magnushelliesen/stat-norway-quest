@@ -32,6 +32,25 @@ pub fn make_player(name: String) -> Stats {
 }
 
 impl Stats {
+    // Method that prints stats
+    pub fn print_stats(self) {
+        let name: String = self.name;
+        let tenure: i32 = self.tenure;
+        let skill: i32 = self.skill;
+        let respect: i32 = self.respect;
+        let amount_written: i32 = self.amount_written;
+        //let job_title: JobTitle = self.job_title;
+
+        println!(
+            "Name: {name} \n\
+            Tenure: {tenure} \n\
+            Skill: {skill} \n\
+            Respect: {respect} \n\
+            Amount written: {amount_written} \n\
+            Job title: TBA"
+        )
+    }
+
     /*
     Methods that increment tenure and skill (these can only increase),
     and increment and decrement respect (these can increase and decrease)

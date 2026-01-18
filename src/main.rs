@@ -61,7 +61,9 @@ fn main() {
             println!("Xmas party.")
         }
 
-        println!("{:#?}", stats);
+        //println!("{:#?}", stats);
+
+        stats.print_stats();
 
         break;
     }
