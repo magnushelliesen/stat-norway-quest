@@ -28,7 +28,7 @@ fn guessing_game() -> bool {
 
     println!(
         "Oh crap, the model crashed...\n \
-        50You need to find the correct equation causes the crash.\n \
+        You need to find the correct equation causes the crash.\n \
         The deadline is right around the corner, so you have only {max_number_of_guesses} attempts. \n\n \
         Guess the buggy equation number (it's somewhere between {MIN_EQUATION_NUMBER} and {MAX_EQUATION_NUMBER}): "
     );
