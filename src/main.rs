@@ -67,9 +67,15 @@ fn main() {
             println!("Xmas party.")
         }
 
-        //if stats.tenure % 10 == 0 {
-        //    stats.print_stats();
-        //}
+        if stats.tenure % 10 == 0 {
+            println!("\n{}+\n", "+-".repeat(25));
+            stats.print_stats();
+            println!("\n{}+\n", "+-".repeat(25));
+        }
+
+        if stats.tenure > 1000 {
+            break;
+        }
     }
 
     println!("\nCongratulations!\nYou just worked many many years in Statistics Norway.")
