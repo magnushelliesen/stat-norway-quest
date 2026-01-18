@@ -10,7 +10,7 @@ const MAX_NUMBER_OF_GUESSES: i32 = 15;
 const MAX_EQUATION_NUMBER: i32 = 15_500;
 
 pub fn fix_model(tenure: i32) -> bool {
-    let probability: f64 = 1.0 / ((tenure + 1) as f64);
+    let probability: f64 = 1.0 / ((tenure + 2) as f64);
     if random_bool(probability) {
         guessing_game()
     } else {
@@ -50,10 +50,17 @@ fn guessing_game() -> bool {
         let guess: i32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => {
-                println!("Input must be a number, you dum-dum...");
+                println!("Your guess must be a number, you dum-dum...");
+                counter += 1;
                 continue;
             }
         };
+
+        // Handle guesses outside range
+        if guess < min_equation_range || guess > min_equation_range {
+            println!("Your guess is outside the outside the expeced range.\nYou wasted precious time, now that's really stupid...");
+            break;
+        }
 
         // Check guess against secret number
         match guess.cmp(&secret_number) {
