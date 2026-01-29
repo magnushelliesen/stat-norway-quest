@@ -8,7 +8,7 @@ pub fn assign_task(tenure: i32) -> fn(i32) -> bool {
     let task_index = tenure + random_range(0..50);
 
     // Return task based on tenure
-    if task_index <= 20 {
+    if task_index <= 25 {
         println!("\nYou've been tasked with running the model.");
         fix_model
     } else {
