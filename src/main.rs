@@ -1,9 +1,8 @@
+use crate::stuff::intro_screen::intro_screen;
 use crate::stuff::player::make_player;
 use crate::stuff::tasks::assign_task::assign_task;
 use rand::random_bool;
-use std::fs::File;
 use std::io;
-use std::io::prelude::*;
 
 pub mod stuff;
 
@@ -13,11 +12,7 @@ const PROBABILITY_XMAS_PARTY: f64 = 0.05;
 
 fn main() {
     // Print intro screen
-    let mut file = File::open(r"./ascii/intro_picture.txt").expect("Unable to open the file");
-    let mut contents = String::new();
-    file.read_to_string(&mut contents)
-        .expect("Unable to read the file");
-    println!("{}", contents);
+    intro_screen();
 
     println!("\n\n*** Welcome to STAT NORWAY QUEST I ***\nPlease type your name:");
 
@@ -39,6 +34,12 @@ fn main() {
     // Game loop
     loop {
         println!("\n*** Welcome to day {} ***", stats.tenure + 1);
+        
+        // Print player stats
+        println!("\n{}+\n", "+-".repeat(25));
+        stats.print_stats();
+        println!("\n{}+\n", "+-".repeat(25));
+
         /*
         Every day the following happens
         1) The player gets a task
@@ -74,12 +75,6 @@ fn main() {
         // 4) Xmas party
         if random_bool(PROBABILITY_XMAS_PARTY) {
             println!("Xmas party.")
-        }
-
-        if stats.tenure % 10 == 0 {
-            println!("\n{}+\n", "+-".repeat(25));
-            stats.print_stats();
-            println!("\n{}+\n", "+-".repeat(25));
         }
 
         if stats.tenure > 1000 {
